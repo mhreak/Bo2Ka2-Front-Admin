@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { DirectionProvider } from "@/components/ui/direction";
+import "./globals.css";
 import { yekanBakh } from "@/fonts";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
+import { Inter } from "next/font/google";
 import AppSideBar from "../components/sidebar/AppSideBar";
 import NavBar from "@/components/sidebar/NavBar";
-import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "بدو کادو",

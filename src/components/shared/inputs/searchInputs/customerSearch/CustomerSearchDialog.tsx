@@ -1,4 +1,5 @@
-import { columns, users } from "@/app/person-list/_components/TableHandler";
+
+import { columns, users } from "@/app/person-list/page";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table/data-table";
 import {
