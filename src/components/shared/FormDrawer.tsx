@@ -16,8 +16,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { FormRenderer } from "@/services/formBuilderService-2/components/form-renderer";
-import { FormConfig } from "@/services/formBuilderService-2/types";
+import { FormRenderer } from "@/components/formBuilder/components/form-renderer";
+import { FormConfig } from "@/components/formBuilder/types";
 
 interface Props {
   drawerTitle: string;

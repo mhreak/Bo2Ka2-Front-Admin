@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Input } from "@/components/ui/input";
-import { DynamicIcon } from "@/services/formBuilderService-2/components/icon-renderer";
+import { DynamicIcon } from "@/components/formBuilder/components/icon-renderer";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 

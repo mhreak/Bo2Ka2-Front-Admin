@@ -18,7 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, Squircle } from "lucide-react";
 import Link from "next/link";
-import { sidebarItems } from "@/constants/sidebar/sidbarItems";
+import { SIDEBAR_ITEMS } from "@/constants/sidebar/sidbarItems";
 
 
 const AppNavigatoin = () => {
@@ -27,7 +27,7 @@ const AppNavigatoin = () => {
   const [openCollapsible, setOpenCollapsible] = useState<string | null>(null);
   return (
     <SidebarMenu>
-      {sidebarItems.map((route) => {
+      {SIDEBAR_ITEMS.map((route) => {
         const isOpen = !isCollapsed && openCollapsible === route.id;
         const hasSubRoutes = !!route.subs?.length;
 

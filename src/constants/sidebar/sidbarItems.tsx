@@ -7,24 +7,24 @@ import {
   Users,
 } from "lucide-react";
 import { SideBarItem } from "./type";
-import { SidebarItemsLinks } from "./sidebarItemsLinks";
+import { SIDEBAR_ITEM_LINKS } from "./sidebarItemsLinks";
 
-export const sidebarItems: SideBarItem[] = [
+export const SIDEBAR_ITEMS: SideBarItem[] = [
   {
     id: "home",
     title: "پیشخوان",
     icon: <Home className="size-4" />,
-    link: SidebarItemsLinks.home,
+    link: SIDEBAR_ITEM_LINKS.home,
   },
   {
     id: "customers",
     title: "مشتریان",
     icon: <Package2 className="size-4" />,
-    link: SidebarItemsLinks.customers,
+    link: SIDEBAR_ITEM_LINKS.customers,
     subs: [
       {
         title: "لیست اشخاص",
-        link: SidebarItemsLinks.personList,
+        link: SIDEBAR_ITEM_LINKS.personList,
         icon: <Package2 className="size-4" />,
       },
       {

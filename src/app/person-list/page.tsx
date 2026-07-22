@@ -7,7 +7,7 @@ import { numberFormatter } from "@/components/ui/data-table/formatters";
 import { Badge } from "@/components/ui/badge";
 import ActionsDropdownMenu from "@/components/shared/ActionsDropdownMenu";
 import { DataTable } from "@/components/ui/data-table/data-table";
-import { FormConfig } from "@/services/formBuilderService-2/types";
+import { FormConfig } from "@/components/formBuilder/types";
 import { FormDrawer } from "@/components/shared/FormDrawer";
 import { myFormConfig } from "../page";
 
@@ -522,7 +522,7 @@ const PersonList = () => {
         onPageChanged={handlePageChange}
         onPageSizeChanged={handlePageSizeChange}
       />
-      <FormDrawer drawerTitle="ثبت مسافر جدید" formConfig={myFormConfig} />;
+      <FormDrawer drawerTitle="ثبت مسافر جدید" formConfig={myFormConfig} /> 
     </div>
   );
 };
