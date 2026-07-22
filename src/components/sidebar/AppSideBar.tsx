@@ -15,7 +15,6 @@ import AppNavigatoin from "./AppNavigatoin";
 import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
 
-
 const AppSideBar = () => {
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
@@ -50,7 +49,13 @@ const AppSideBar = () => {
           transition={{ duration: 0.8 }}
         >
           {/* <NotificationsPopover notifications={sampleNotifications} /> */}
-          <SidebarTrigger render={<Button size={"icon"} variant={"outline"}><Menu /></Button>}/>
+          <SidebarTrigger
+            render={
+              <Button size={"icon"} variant={"outline"}>
+                <Menu />
+              </Button>
+            }
+          />
         </motion.div>
       </SidebarHeader>
       <SidebarContent className="gap-4 px-2 py-4">

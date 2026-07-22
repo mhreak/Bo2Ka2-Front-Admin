@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import HttpService from "./services/httpService";
+import httpService from "./services/HttpService";
 
 export default class ApiClient {
   constructor(private readonly baseUrl: string) {}
@@ -7,9 +7,9 @@ export default class ApiClient {
   get<TResponse>(
     url: string,
     params?: unknown,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<TResponse> {
-    return HttpService.get<TResponse>(`${this.baseUrl}${url}`, {
+    return httpService.get<TResponse>(`${this.baseUrl}${url}`, {
       ...config,
       params,
     });
@@ -18,46 +18,43 @@ export default class ApiClient {
   post<TResponse, TRequest = unknown>(
     url: string,
     data?: TRequest,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<TResponse> {
-    return HttpService.post<TResponse, TRequest>(
+    return httpService.post<TResponse, TRequest>(
       `${this.baseUrl}${url}`,
       data,
-      config
+      config,
     );
   }
 
   put<TResponse, TRequest = unknown>(
     url: string,
     data?: TRequest,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<TResponse> {
-    return HttpService.put<TResponse, TRequest>(
+    return httpService.put<TResponse, TRequest>(
       `${this.baseUrl}${url}`,
       data,
-      config
+      config,
     );
   }
 
   patch<TResponse, TRequest = unknown>(
     url: string,
     data?: TRequest,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<TResponse> {
-    return HttpService.patch<TResponse, TRequest>(
+    return httpService.patch<TResponse, TRequest>(
       `${this.baseUrl}${url}`,
       data,
-      config
+      config,
     );
   }
 
   delete<TResponse>(
     url: string,
-    config?: AxiosRequestConfig
+    config?: AxiosRequestConfig,
   ): Promise<TResponse> {
-    return HttpService.delete<TResponse>(
-      `${this.baseUrl}${url}`,
-      config
-    );
+    return httpService.delete<TResponse>(`${this.baseUrl}${url}`, config);
   }
 }

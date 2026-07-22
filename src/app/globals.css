@@ -129,23 +129,24 @@
   }
 }
 
-@utility flex-center{
+@utility flex-center {
+  display: flex;
 
-    display:flex;
+  align-items: center;
 
-    align-items:center;
-
-    justify-content:center;
-
+  justify-content: center;
 }
-@utility flex-between{
+@utility flex-between {
+  display: flex;
 
-    display:flex;
+  display-direction: row;
 
-    display-direction: row;
+  align-items: center;
 
-    align-items:center;
+  justify-content: space-between;
+}
 
-    justify-content:space-between;
-
+.cn-toast {
+  font-family: var(--font-yekan-bakh);
+  font-size: 24px;
 }

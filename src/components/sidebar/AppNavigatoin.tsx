@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, Squircle } from "lucide-react";
 import Link from "next/link";
 import { SIDEBAR_ITEMS } from "@/constants/sidebar/sidbarItems";
-
+import { AnimatePresence, motion } from "framer-motion";
 
 const AppNavigatoin = () => {
   const { state } = useSidebar();
@@ -70,35 +70,57 @@ const AppNavigatoin = () => {
                     </span>
                   )}
                 </CollapsibleTrigger>
-
-                {!isCollapsed && (
-                  <CollapsibleContent>
-                    <SidebarMenuSub className="my-1 ml-3.5 ">
-                      {route.subs?.map((subRoute) => (
-                        <SidebarMenuSubItem
-                          className="h-auto"
-                          key={`${route.id}-${subRoute.title}`}
-                        >
-                          <SidebarMenuSubButton
-                            render={
-                              <Link
-                                className="flex items-center rounded-md px-2 py-1.5 font-medium text-muted-foreground text-sm hover:bg-sidebar-muted hover:text-foreground"
-                                href={subRoute.link}
-                                prefetch={true}
-                              />
-                            }
-                          >
-                            <Squircle />
-                            <span className="ml-2 flex-1 font-medium text-sm">
-                            {subRoute.title}
-
-                            </span>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                )}
+                <AnimatePresence initial={false}>
+                  {!isCollapsed && (
+                    <CollapsibleContent>
+                      <motion.div
+                        initial={{
+                          opacity: 0,
+                          height: 0,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          height: "auto",
+                        }}
+                        exit={{
+                          opacity: 0,
+                          height: 0,
+                        }}
+                        transition={{
+                          duration: 0.22,
+                          ease: "easeInOut",
+                        }}
+                        style={{
+                          overflow: "hidden",
+                        }}
+                      >
+                        <SidebarMenuSub className="my-1 ml-3.5 ">
+                          {route.subs?.map((subRoute) => (
+                            <SidebarMenuSubItem
+                              className="h-auto"
+                              key={`${route.id}-${subRoute.title}`}
+                            >
+                              <SidebarMenuSubButton
+                                render={
+                                  <Link
+                                    className="flex items-center rounded-md px-2 py-1.5 font-medium text-muted-foreground text-sm hover:bg-sidebar-muted hover:text-foreground"
+                                    href={subRoute.link}
+                                    prefetch={true}
+                                  />
+                                }
+                              >
+                                <Squircle />
+                                <span className="ml-2 flex-1 font-medium text-sm">
+                                  {subRoute.title}
+                                </span>
+                              </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                          ))}
+                        </SidebarMenuSub>
+                      </motion.div>
+                    </CollapsibleContent>
+                  )}
+                </AnimatePresence>
               </Collapsible>
             ) : (
               <SidebarMenuButton
