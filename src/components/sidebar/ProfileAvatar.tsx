@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,20 +22,18 @@ const ProfileAvatar = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem className="flex justify-between">
             <p className="text-lg">{"mhreak"}</p>
-            <Button variant={"secondary"} size={"icon"}>
-              <User2 className="text-secondary-foreground size-4" />
-
-            </Button>
-            
+            <div className="border-2 border-secondary rounded-full flex-center p-1">
+              <User2 className="text-secondary size-4" />
+            </div>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className={"text-destructive flex justify-between"}>
             خروج از حساب کاربری
-            <Button variant={"destructive"} size={"icon"}>
+            <div className="border-2 border-destructive rounded-full p-1 hover:text-black">
               <LogOut className="size-4" />
-            </Button>
+            </div>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

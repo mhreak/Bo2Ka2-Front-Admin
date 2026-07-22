@@ -12,6 +12,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React from "react";
 import AppNavigatoin from "./AppNavigatoin";
+import { Menu } from "lucide-react";
+import { Button } from "../ui/button";
+
 
 const AppSideBar = () => {
   const { state } = useSidebar();
@@ -47,7 +50,7 @@ const AppSideBar = () => {
           transition={{ duration: 0.8 }}
         >
           {/* <NotificationsPopover notifications={sampleNotifications} /> */}
-          <SidebarTrigger />
+          <SidebarTrigger render={<Button size={"icon"} variant={"outline"}><Menu /></Button>}/>
         </motion.div>
       </SidebarHeader>
       <SidebarContent className="gap-4 px-2 py-4">

@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import { DirectionProvider } from "@/components/ui/direction";
-import "./globals.css";
 import { yekanBakh } from "@/fonts";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import AppSideBar from "./(sidebar)/_components/AppSideBar";
-import NavBar from "./(sidebar)/_components/NavBar";
 import { Toaster } from "@/components/ui/sonner";
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
+import AppSideBar from "../components/sidebar/AppSideBar";
+import NavBar from "@/components/sidebar/NavBar";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "بدو کادو",
@@ -31,9 +26,7 @@ export default function RootLayout({
               <AppSideBar />
               <SidebarInset className="flex flex-col">
                 <NavBar />
-                <div className="p-8 h-full overflow-auto"> 
-                {children}
-                </div>
+                <div className="p-8 h-full overflow-auto">{children}</div>
               </SidebarInset>
             </div>
             <Toaster />
