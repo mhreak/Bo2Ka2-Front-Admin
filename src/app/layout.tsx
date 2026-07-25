@@ -13,6 +13,7 @@ import AppSideBar from "../components/sidebar/AppSideBar";
 import NavBar from "@/components/navbar/NavBar";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { AuthProvider } from "@/context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -29,36 +30,40 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={yekanBakh.variable}>
       <body>
-        <DirectionProvider direction="rtl">
-          <SidebarProvider>
-            <div className="relative flex h-dvh w-full">
-              <AppSideBar />
-              <SidebarInset className="flex flex-col">
-                {/* <div className="md:hidden">
-                  <SidebarTrigger
-                    render={
-                      <Button size={"icon"} variant={"outline"}>
-                        <Menu />
-                      </Button>
-                    }
-                  />
-                </div> */}
-                <NavBar />
-                <div className="p-8 h-full overflow-auto">{children}</div>
-              </SidebarInset>
-            </div>
-            <Toaster
-              dir="rtl"
-              toastOptions={{
-                classNames: {
-                  toast: "cn-toast",
-                },
-              }}
-              position="top-center"
-              closeButton
-            />
-          </SidebarProvider>
-        </DirectionProvider>
+        <AuthProvider>
+          <DirectionProvider direction="rtl">
+            <SidebarProvider>
+              <div className="relative flex h-dvh w-full">
+                <AppSideBar />
+                <SidebarInset className="flex flex-col">
+                  <div className="flex flex-row">
+                    <span className="md:hidden flex flex-col justify-center mr-3">
+                      <SidebarTrigger
+                        render={
+                          <Button size={"icon-lg"} variant={"outline"}>
+                            <Menu />
+                          </Button>
+                        }
+                      />
+                    </span>
+                    <NavBar />
+                  </div>
+                  <div className="p-8 h-full overflow-auto">{children}</div>
+                </SidebarInset>
+              </div>
+              <Toaster
+                dir="rtl"
+                toastOptions={{
+                  classNames: {
+                    toast: "cn-toast",
+                  },
+                }}
+                position="top-center"
+                closeButton
+              />
+            </SidebarProvider>
+          </DirectionProvider>
+        </AuthProvider>
       </body>
     </html>
   );
