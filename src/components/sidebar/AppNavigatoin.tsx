@@ -26,13 +26,13 @@ const AppNavigatoin = () => {
   const isCollapsed = state === "collapsed";
   const [openCollapsible, setOpenCollapsible] = useState<string | null>(null);
   return (
-    <SidebarMenu>
+    <SidebarMenu className="gap-2">
       {SIDEBAR_ITEMS.map((route) => {
         const isOpen = !isCollapsed && openCollapsible === route.id;
         const hasSubRoutes = !!route.subs?.length;
 
         return (
-          <SidebarMenuItem key={route.id}>
+          <SidebarMenuItem key={route.id} className="">
             {hasSubRoutes ? (
               <Collapsible
                 className="w-full"
@@ -47,8 +47,8 @@ const AppNavigatoin = () => {
                       className={cn(
                         "flex w-full items-center rounded-lg px-2 transition-colors",
                         isOpen
-                          ? "bg-sidebar-muted text-sidebar-foreground"
-                          : "text-muted-foreground hover:bg-sidebar-muted hover:text-sidebar-foreground",
+                          ? "bg-sidebar-muted text-white"
+                          : "text-sidebar-foreground hover:bg-sidebar-muted hover:text-sidebar-foreground",
                         isCollapsed && "justify-center",
                       )}
                     />
@@ -56,12 +56,12 @@ const AppNavigatoin = () => {
                 >
                   {route.icon}
                   {!isCollapsed && (
-                    <span className="ml-2 font-medium text-sm">
+                    <span className="ml-2 font-medium text-lg">
                       {route.title}
                     </span>
                   )}
                   {!isCollapsed && hasSubRoutes && (
-                    <span className="ml-auto">
+                    <span className="mr-auto">
                       {isOpen ? (
                         <ChevronUp className="size-4" />
                       ) : (
@@ -103,13 +103,13 @@ const AppNavigatoin = () => {
                               <SidebarMenuSubButton
                                 render={
                                   <Link
-                                    className="flex items-center rounded-md px-2 py-1.5 font-medium text-muted-foreground text-sm hover:bg-sidebar-muted hover:text-foreground"
+                                    className="flex items-center rounded-md px-2 py-1.5 font-medium text-sidebar-foreground text-sm hover:bg-sidebar-muted hover:text-foreground"
                                     href={subRoute.link}
                                     prefetch={true}
                                   />
                                 }
                               >
-                                <Squircle />
+                                <Squircle className="text-white size-10" />
                                 <span className="ml-2 flex-1 font-medium text-sm">
                                   {subRoute.title}
                                 </span>
@@ -127,7 +127,7 @@ const AppNavigatoin = () => {
                 render={
                   <Link
                     className={cn(
-                      "flex items-center rounded-lg px-2 text-muted-foreground transition-colors hover:bg-sidebar-muted hover:text-foreground",
+                      "flex items-center rounded-lg px-2 text-sidebar-foreground transition-colors hover:bg-sidebar-muted hover:text-foreground",
                       isCollapsed && "justify-center",
                     )}
                     href={route.link}
@@ -138,7 +138,7 @@ const AppNavigatoin = () => {
               >
                 {route.icon}
                 {!isCollapsed && (
-                  <span className="ml-2 font-medium text-sm">
+                  <span className="ml-2 font-medium text-lg">
                     {route.title}
                   </span>
                 )}

@@ -14,10 +14,7 @@ const ProfileAvatar = () => {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button
-            size="icon-lg"
-            className="rounded-full bg-secondary flex-center p-3 cursor-pointer size-12"
-          >
+          <Button size="icon-lg" variant={"secondary"}>
             <User2 className="text-secondary-foreground size-6" />
           </Button>
         }

@@ -14,6 +14,7 @@ import React from "react";
 import AppNavigatoin from "./AppNavigatoin";
 import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 const AppSideBar = () => {
   const { state } = useSidebar();
@@ -30,7 +31,18 @@ const AppSideBar = () => {
         )}
       >
         <a className="flex items-center gap-2" href="/">
-          <div className="h-8 w-8 border rounded-2xl border-border"></div>
+          <div
+            className={cn(
+              "relative aspect-square",
+              isCollapsed ? "size-10" : "size-16",
+            )}
+          >
+            <Image
+              src={"/images/bodokado-logo.png"}
+              alt="لوگوی بدو کادو"
+              fill
+            />
+          </div>
           {!isCollapsed && (
             <span className="font-semibold text-sidebar-foreground text-xl dark:text-white">
               بدو کادو
@@ -48,10 +60,9 @@ const AppSideBar = () => {
           key={isCollapsed ? "header-collapsed" : "header-expanded"}
           transition={{ duration: 0.8 }}
         >
-          {/* <NotificationsPopover notifications={sampleNotifications} /> */}
           <SidebarTrigger
             render={
-              <Button size={"icon"} variant={"outline"}>
+              <Button size={"icon"} variant={"accent"}>
                 <Menu />
               </Button>
             }
