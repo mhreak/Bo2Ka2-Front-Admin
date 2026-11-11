@@ -80,10 +80,13 @@ export function FilterRenderer({
 
   return (
     <FormProvider {...methods}>
-      <Accordion defaultValue={["shipping"]} className="mb-8">
+      <Accordion
+        defaultValue={["shipping"]}
+        className="rounded-xl border bg-background mb-8"
+      >
         <AccordionItem value="item-1">
-          <AccordionTrigger className="text-xl font-bold text-primary flex items-center gap-2">
-            <span className="border bg-secondary rounded-full p-2">
+          <AccordionTrigger className="text-xl font-bold text-secondary flex items-center gap-2">
+            <span className="border bg-accent rounded-full p-2">
               <Funnel className="text-primary-foreground" size={18} />
             </span>
             فیلترهای جستجو
@@ -91,7 +94,7 @@ export function FilterRenderer({
           <AccordionContent>
             <form
               onSubmit={methods.handleSubmit(handleSubmit)}
-              className="p-4 border rounded-xl bg-card space-y-4 shadow-sm"
+              className="p-4 space-y-4 "
             >
               {/* <div className="flex items-center justify-between border-b pb-2">
                 <h3 className="text-sm font-bold text-foreground">
@@ -131,7 +134,7 @@ export function FilterRenderer({
                   type="submit"
                   size="sm"
                   className="gap-2"
-                  variant={"secondary"}
+                  variant={"accent"}
                 >
                   <Search className="size-4" />
                   اعمال فیلتر

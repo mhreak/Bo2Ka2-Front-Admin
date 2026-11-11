@@ -2,17 +2,14 @@ import { AxiosError } from "axios";
 
 import { errorMessages } from "./ErrorMessages";
 import ApiError from "./ApiError";
-import { APIGlobalErrorResponse } from "@/types/api/commonApiTypes";
+import { APIGlobalErrorResponse } from "@/types/api/commonApi.types";
 
 const handleApiErrorMessage = (
   data: APIGlobalErrorResponse<any>,
 ): string | undefined => {
   let dataError: string | undefined = undefined;
 
-  if (typeof data?.error === "string") dataError = data?.error;
-  else if (typeof data?.error?.message === "string")
-    dataError = data?.error?.message;
-
+  if (typeof data?.message === "string") dataError = data?.message;
 
   return dataError;
 };

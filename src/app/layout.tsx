@@ -32,36 +32,17 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <DirectionProvider direction="rtl">
-            <SidebarProvider>
-              <div className="relative flex h-dvh w-full">
-                <AppSideBar />
-                <SidebarInset className="flex flex-col">
-                  <div className="flex flex-row">
-                    <span className="md:hidden flex flex-col justify-center mr-3">
-                      <SidebarTrigger
-                        render={
-                          <Button size={"icon-lg"} variant={"outline"}>
-                            <Menu />
-                          </Button>
-                        }
-                      />
-                    </span>
-                    <NavBar />
-                  </div>
-                  <div className="p-8 h-full overflow-auto">{children}</div>
-                </SidebarInset>
-              </div>
-              <Toaster
-                dir="rtl"
-                toastOptions={{
-                  classNames: {
-                    toast: "cn-toast",
-                  },
-                }}
-                position="top-center"
-                closeButton
-              />
-            </SidebarProvider>
+            {children}
+            <Toaster
+              dir="rtl"
+              toastOptions={{
+                classNames: {
+                  toast: "cn-toast",
+                },
+              }}
+              position="top-center"
+              closeButton
+            />
           </DirectionProvider>
         </AuthProvider>
       </body>
